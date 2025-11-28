@@ -1,4 +1,4 @@
-
+command to run --- uvicorn main:app --reload
 
 # ⭐ **Problem Statement**
 
