@@ -142,4 +142,96 @@ Adaptive Multi-Format Generator produces Story / Feed / Banner sizes
 Export final creative pack (JPG/PNG under 500KB)
  ↓
 END
+----
 
+⭐ TASK 1 — UI Wireframes (Simple Text-Based Wireframe)
+
+---
+## Home Page UI Wireframe
+
+---------------------------------------------------------
+| Semantic AI Creative Builder                            |
+---------------------------------------------------------
+| Upload Assets:  [Upload Packshot] [Upload Logo]         |
+| Upload Background:   [Select/Upload]                    |
+---------------------------------------------------------
+| Upload Retailer Guidelines PDF  [Upload]                |
+---------------------------------------------------------
+| Select Creative Style: [Minimal] [Bold] [Luxury] [Fun]  |
+---------------------------------------------------------
+|   [Generate AI Layouts]                                 |
+---------------------------------------------------------
+
+## Canvas Editor UI Wireframe
+
+-------------------------------------------------------------
+|  Canvas Workspace (Editable Creative Preview Area)        |
+-------------------------------------------------------------
+| Tools: Move | Resize | Rotate | Add Text | Add Shape      |
+| Assets: Product | Logo | Background | Elements            |
+| Safe Zones Overlay [Toggle]                               |
+| Layout Suggestions  [Option 1] [Option 2] [Option 3]       |
+-------------------------------------------------------------
+| Compliance Alerts:   ✔ No Violations | ⚠ Fix Logo Size    |
+-------------------------------------------------------------
+| Buttons:  [Auto Fix] [Generate Multi-format] [Download]   |
+-------------------------------------------------------------
+
+## Multi-Format Preview UI Wireframe
+
+-----------------------------------------
+| Preview Formats:                      |
+|  9:16 (Story)   |  1:1 (Feed)         |
+|  1.91:1 Banner  |  Carousel           |
+-----------------------------------------
+|      [Download All Formats Pack]      |
+-----------------------------------------
+
+---
+
+⭐ TASK 2 — API Endpoints Planning
+
+---
+
+## Backend API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| /upload/packshot | POST | Upload product image |
+| /remove-bg | POST | Remove background using MODNet |
+| /upload-guideline | POST | Upload guideline PDF/text |
+| /parse-guideline | POST | Extract rules using LLM |
+| /generate-layouts | POST | Generate creative layout options |
+| /compliance-check | POST | Validate layout using Vision + NLP |
+| /generate-formats | POST | Create multi-format creatives |
+| /export | GET | Download final assets |
+
+---
+⭐ TASK 3 — Semantic AI Guideline Interpreter Prompt
+---
+
+## AI Design Components
+
+### Guideline Interpreter Prompt
+# TASK 4
+You are a Retail Creative Compliance Expert. Your goal is to read and interpret retailer
+guidelines and convert them into clear creative constraints.
+
+Input: Retailer guideline document text.
+Output: A structured JSON that contains:
+- Placement rules (logo, product, CTA, text)
+- Color and branding restrictions
+- Safe zone requirements
+- Copy restrictions (claims/pricing/sustainability/etc.)
+- Tone of voice requirements
+- File size & format requirements
+- Text font/legibility guidelines
+
+Do not summarize the document. Convert rules into actionable constraints
+for validating ad creative layout and content.
+
+
+### Compliance Engine Logic
+- Visual model checks layout violations
+- Language model checks text tone & banned phrases
+- Suggests corrective actions automatically
